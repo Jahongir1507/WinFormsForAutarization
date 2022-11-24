@@ -15,15 +15,14 @@ namespace WinFormsForAutarization
         public LoginForm()
         {
             InitializeComponent();
+            this.PasswordField.AutoSize = false;
+            this.PasswordField.Size = new Size(this.PasswordField.Size.Width, 54);
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
+        private void LoginButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
+            string loginUser = loginField.Text;
+            string passUser = PasswordField.Text;
 
         }
     }
