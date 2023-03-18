@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,8 +22,29 @@ namespace WinFormsForAutarization
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            string loginUser = loginField.Text;
-            string passUser = PasswordField.Text;
+            String loginUser = loginField.Text;
+            String passUser = PasswordField.Text;
+
+            DtBase db = new DtBase();
+
+            DataTable dtTable = new DataTable();
+        
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            MySqlCommand sqlCommand = new MySqlCommand("SELECT * FROM `users` WHERE `login`=@uL AND `password`=@uP", db.getConnection());
+            sqlCommand.Parameters.Add("@uL", MySqlDbType.VarChar).Value = loginUser;
+            sqlCommand.Parameters.Add("@uP", MySqlDbType.VarChar).Value = passUser;
+
+            adapter.SelectCommand = sqlCommand;
+
+            adapter.Fill(dtTable);
+           
+
+                if (dtTable.Rows.Count > 0)
+                    MessageBox.Show("yes");
+                else
+                    MessageBox.Show("no");
+            
 
         }
     }
