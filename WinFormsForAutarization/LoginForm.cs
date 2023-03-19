@@ -1,13 +1,5 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
+using MySql.Data.MySqlClient;
 
 namespace WinFormsForAutarization
 {
@@ -28,7 +20,7 @@ namespace WinFormsForAutarization
             DtBase db = new DtBase();
 
             DataTable dtTable = new DataTable();
-        
+
             MySqlDataAdapter adapter = new MySqlDataAdapter();
 
             MySqlCommand sqlCommand = new MySqlCommand("SELECT * FROM `users` WHERE `login`=@uL AND `password`=@uP", db.getConnection());
@@ -38,13 +30,13 @@ namespace WinFormsForAutarization
             adapter.SelectCommand = sqlCommand;
 
             adapter.Fill(dtTable);
-           
 
-                if (dtTable.Rows.Count > 0)
-                    MessageBox.Show("yes");
-                else
-                    MessageBox.Show("no");
-            
+
+            if (dtTable.Rows.Count > 0)
+                MessageBox.Show("yes");
+            else
+                MessageBox.Show("no");
+
 
         }
     }
