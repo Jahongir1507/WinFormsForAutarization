@@ -1,14 +1,7 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using MySql.Data.MySqlClient;
 
-namespace WinFormsForAutarization
-{
+namespace WinFormsForAutarization {
     class DtBase : DbContext
     {
       MySqlConnection sqlConnection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=itproger");
