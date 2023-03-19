@@ -2,6 +2,7 @@ namespace WinFormsForAutarization
 {
     internal static class Program
     {
+        // comment
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
