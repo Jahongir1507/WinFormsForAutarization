@@ -3,8 +3,6 @@ using MySql.Data.MySqlClient;
 
 namespace WinFormsForAutarization
 {
-
-
     class DtBase : DbContext
     {
         MySqlConnection sqlConnection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=itproger");
